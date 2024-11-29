@@ -50,3 +50,24 @@ span:hover {
     text-decoration: underline;
 }
 
+
+
+.modal-body.success {
+    background-color: #28a745;
+    color: #d4d9df;  
+}
+
+.modal-body.error {
+    background-color: #dc3545;
+    color: #e1e5ea;  /* لون النص الجديد */
+}
+
+.modal-body.warning {
+    background-color: #ffc107;
+    color: #ecf1f7;  /* لون النص الجديد */
+}
+
+.modal-header, .modal-footer {
+    background-color: #0d1b2a; /* نفس اللون الرمادي */
+    color: #fff; /* النص الأبيض */
+}

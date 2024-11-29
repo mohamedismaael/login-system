@@ -16,23 +16,23 @@ function register() {
     const password = document.getElementById('reg-password').value;
 
     if (!name || !email || !password) {
-        alert('Please fill all fields!');
+        showModal('Please fill all fields!', 'error');
         return;
     }
 
     if (!validateEmail(email)) {
-        alert('Invalid email format!');
+        showModal('Invalid email format!', 'error');
         return;
     }
 
     if (localStorage.getItem(email)) {
-        alert('Email already exists!');
+        showModal('Email already exists!', 'error'); 
         return;
     }
 
     const user = { name, password };
     localStorage.setItem(email, JSON.stringify(user)); 
-    alert('Registration successful!');
+    showModal('Registration successful!', 'success'); 
     showLogin();
 }
 
@@ -41,19 +41,19 @@ function login() {
     const password = document.getElementById('login-password').value;
 
     if (!email || !password) {
-        alert('Please fill all fields!');
+        showModal('Please fill all fields!', 'error');  
         return;
     }
 
     const user = JSON.parse(localStorage.getItem(email)); 
 
     if (!user) {
-        alert('Email not registered!');
+        showModal('Incorrect Email or Password!', 'error'); 
         return;
     }
 
     if (user.password !== password) {
-        alert('Incorrect password!');
+        showModal('Incorrect Email or Password!', 'error'); 
         return;
     }
 
@@ -77,6 +77,18 @@ function logout() {
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
+}
+
+function showModal(message, type = 'success') {
+    const modalBody = document.getElementById('alertModalBody');
+    modalBody.textContent = message;  
+
+    
+    modalBody.className = 'modal-body';  
+    modalBody.classList.add(type);  
+
+    const alertModal = new bootstrap.Modal(document.getElementById('alertModal')); 
+    alertModal.show(); 
 }
 
 window.onload = () => {
