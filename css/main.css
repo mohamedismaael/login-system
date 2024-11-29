@@ -62,11 +62,6 @@ span:hover {
     color: #e1e5ea;  
 }
 
-.modal-body.warning {
-    background-color: #ffc107;
-    color: #ecf1f7;  
-}
-
 .modal-header, .modal-footer {
     background-color: #0d1b2a; 
     color: #fff; 
